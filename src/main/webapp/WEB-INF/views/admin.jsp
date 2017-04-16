@@ -1,4 +1,12 @@
-<%@include file="/WEB-INF/view/template/header.jsp"%>
+<%--
+  Created by IntelliJ IDEA.
+  User: Le
+  Date: 1/7/2016
+  Time: 7:09 PM
+  To change this template use File | Settings | File Templates.
+--%>
+
+<%@include file="/WEB-INF/views/template/header.jsp"%>
 
 
 <div class="container-wrapper">
@@ -16,4 +24,5 @@
         <p>Here you can view, check and modify the product inventory!</p>
 
 
-        <%@include file="/WEB-INF/view/template/footer.jsp" %>
+        <%@include file="/WEB-INF/views/template/footer.jsp" %>
+
