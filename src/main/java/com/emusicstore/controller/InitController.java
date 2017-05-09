@@ -29,8 +29,9 @@ public class InitController {
 	}
 	
 	@RequestMapping("/productList/viewProduct/{productId}")
-	public String viewProduct(@PathVariable("productId") String productId ){
-		productDao.getProductById(productId);
+	public String viewProduct(@PathVariable("productId") int productId,Model model){
+		Product product =productDao.getProductById(productId);
+		model.addAttribute(product);
 		return "viewProduct";
 	}
 	

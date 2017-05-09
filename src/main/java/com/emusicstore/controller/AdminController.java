@@ -61,12 +61,13 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/admin/productInventory/addProduct", method = RequestMethod.POST)
-    public String addProductPost(@Valid @ModelAttribute("product") Product product, BindingResult result,
+    public String addProductPost(@ModelAttribute("product") Product product,
                                  HttpServletRequest request) {
-        if (result.hasErrors()) {
+      /*
+    	if (result.hasErrors()) {
             return "addProduct";
         }
-
+*/
         productDao.addProduct(product);
 
         MultipartFile productImage = product.getProductImage();
@@ -87,7 +88,7 @@ public class AdminController {
 
 
     @RequestMapping("/admin/productInventory/deleteProduct/{id}")
-    public String deleteProduct(@PathVariable String id, Model model, HttpServletRequest request) {
+    public String deleteProduct(@PathVariable int id, Model model, HttpServletRequest request) {
 
         String rootDirectory = request.getSession().getServletContext().getRealPath("/");
         path = Paths.get(rootDirectory + "\\WEB-INF\\resources\\images\\" + id + ".png");
@@ -107,7 +108,7 @@ public class AdminController {
 
 
     @RequestMapping("/admin/productInventory/editProduct/{id}")
-    public String editProduct(@PathVariable("id") String id, Model model) {
+    public String editProduct(@PathVariable("id") int id, Model model) {
         Product product = productDao.getProductById(id);
 
         model.addAttribute(product);

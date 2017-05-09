@@ -1,47 +1,45 @@
 package com.emusicstore.model;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.*;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Pattern;
 
-/**
- * Created by Le on 1/2/2016.
- */
 
 @Entity
 public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String productId;
+    private int productId;
 
-    @NotEmpty (message = "The product name must not be null.")
+   // @NotEmpty (message = "The product name must not be null.")
 
     private String productName;
     private String productCategory;
     private String productDescription;
 
-    @Min(value = 0, message = "The product price must no be less then zero.")
+   // @Min(value = 0, message = "The product price must no be less then zero.")
     private double productPrice;
     private String productCondition;
     private String productStatus;
 
-    @Min(value = 0, message = "The product unit must not be less than zero.")
+   // @Min(value = 0, message = "The product unit must not be less than zero.")
     private int unitInStock;
     private String productManufacturer;
 
     @Transient
     private MultipartFile productImage;
 
-    public String getProductId() {
+    public int getProductId() {
         return productId;
     }
 
-    public void setProductId(String productId) {
+    public void setProductId(int productId) {
         this.productId = productId;
     }
 
