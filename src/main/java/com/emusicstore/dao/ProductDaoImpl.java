@@ -1,7 +1,7 @@
-package com.emusicstore.dao.impl;
+package com.emusicstore.dao;
 
-import com.emusicstore.dao.ProductDao;
-import com.emusicstore.model.Product;
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import com.emusicstore.model.Product;
 
 /**
  * Created by Le on 1/6/2016.

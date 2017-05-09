@@ -23,14 +23,14 @@ public class InitController {
 	
 	@RequestMapping("/productList")
 	public String getProducts(Model model){
-		List<Product> productList =  productDao.getProductList();
+		List<Product> productList =  productDao.getAllProducts();
 		model.addAttribute("products", productList);
 		return "products";
 	}
 	
 	@RequestMapping("/productList/viewProduct/{productId}")
-	public String viewProduct(@PathVariable("productId") int productId ){
-		productDao.getProduct(productId);
+	public String viewProduct(@PathVariable("productId") String productId ){
+		productDao.getProductById(productId);
 		return "viewProduct";
 	}
 	
